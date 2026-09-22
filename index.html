@@ -6,7 +6,7 @@
     <title>Shawn Mitchell</title>
     <meta
       name="description"
-      content="Shawn Mitchell, Raleigh. Recent work: Honeycutt Software, Pine State AI, and JobSeek."
+      content="Shawn Mitchell, Raleigh. Honeycutt Software, Pine State AI, JobSeek, voice agents, Orbit, edtech games, and home cameras."
     />
     <link rel="canonical" href="https://shawnmitchell.github.io/" />
     <meta property="og:type" content="website" />
@@ -14,7 +14,7 @@
     <meta property="og:title" content="Shawn Mitchell" />
     <meta
       property="og:description"
-      content="Raleigh. Recent work: Honeycutt Software, Pine State AI, and JobSeek."
+      content="Raleigh. Honeycutt Software, Pine State AI, JobSeek, voice agents, Orbit, edtech games, and home cameras."
     />
     <meta name="theme-color" content="#f3efe6" />
     <link
@@ -24,7 +24,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;1,9..144,500&family=Outfit:wght@400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
     <style>
@@ -36,8 +36,8 @@
         --line: #d8d0c3;
         --hover: #e9e2d6;
         --accent: #8c3b22;
-        --serif: "Fraunces", "Iowan Old Style", Palatino, Georgia, serif;
-        --sans: "Outfit", "Avenir Next", "Segoe UI", sans-serif;
+        --sans: "IBM Plex Sans", "Helvetica Neue", sans-serif;
+        --mono: "IBM Plex Mono", ui-monospace, monospace;
       }
 
       * {
@@ -90,22 +90,21 @@
 
       h1 {
         margin: 0;
-        font-family: var(--serif);
-        font-weight: 500;
-        font-size: clamp(3.5rem, 9vw, 6.25rem);
-        letter-spacing: -0.035em;
+        font-family: var(--sans);
+        font-weight: 600;
+        font-size: clamp(3.25rem, 8vw, 5.25rem);
+        letter-spacing: -0.045em;
         line-height: 0.96;
         text-wrap: balance;
       }
 
       .lede {
         max-width: 28rem;
-        margin: 20px 0 48px;
-        font-family: var(--serif);
-        font-style: italic;
-        font-weight: 500;
-        font-size: clamp(1.45rem, 2.4vw, 1.85rem);
-        line-height: 1.25;
+        margin: 18px 0 48px;
+        font-family: var(--sans);
+        font-weight: 400;
+        font-size: 1.15rem;
+        line-height: 1.45;
         color: var(--body);
       }
 
@@ -132,12 +131,12 @@
         display: contents;
       }
 
-      .work:hover,
-      .work:focus-visible {
+      a.work:hover,
+      a.work:focus-visible {
         background: var(--hover);
       }
 
-      .work:focus-visible {
+      a.work:focus-visible {
         outline: 2px solid var(--accent);
         outline-offset: -2px;
       }
@@ -145,8 +144,9 @@
       .num {
         grid-column: 1;
         grid-row: 1;
-        padding-top: 0.2rem;
-        font-size: 0.82rem;
+        padding-top: 0.35rem;
+        font-family: var(--mono);
+        font-size: 0.78rem;
         font-weight: 500;
         font-variant-numeric: tabular-nums;
         letter-spacing: 0.04em;
@@ -168,10 +168,10 @@
         grid-column: 2;
         grid-row: 2;
         margin: 4px 0 10px;
-        font-family: var(--serif);
-        font-weight: 500;
-        font-size: clamp(1.85rem, 3vw, 2.4rem);
-        letter-spacing: -0.025em;
+        font-family: var(--sans);
+        font-weight: 600;
+        font-size: clamp(1.55rem, 2.4vw, 1.9rem);
+        letter-spacing: -0.03em;
         line-height: 1.05;
       }
 
@@ -187,14 +187,15 @@
         grid-column: 3;
         grid-row: 2;
         align-self: center;
-        font-size: 0.95rem;
+        font-family: var(--mono);
+        font-size: 0.82rem;
         font-weight: 500;
         color: var(--accent);
         white-space: nowrap;
       }
 
-      .work:hover .domain,
-      .work:focus-visible .domain {
+      a.work:hover .domain,
+      a.work:focus-visible .domain {
         text-decoration: underline;
         text-underline-offset: 3px;
       }
@@ -315,6 +316,61 @@
             </span>
             <span class="domain">getjobseek.com</span>
           </a>
+        </li>
+        <li>
+          <article class="work">
+            <span class="num">04</span>
+            <span class="copy">
+              <p class="kicker">Phone</p>
+              <h2>Voice agents</h2>
+              <p class="blurb">
+                Farina answers the phone for a Raleigh Italian restaurant. Menu questions,
+                pickup orders, reservations. Abby takes shift calls for healthcare staffing.
+                Workers confirm or drop a shift. Facilities ask for coverage.
+              </p>
+            </span>
+          </article>
+        </li>
+        <li>
+          <article class="work">
+            <span class="num">05</span>
+            <span class="copy">
+              <p class="kicker">Personal CRM</p>
+              <h2>Orbit</h2>
+              <p class="blurb">
+                A personal CRM on the Mac. It reads iMessage, Contacts, Calendar, and call
+                history, and keeps one timeline per person.
+              </p>
+            </span>
+          </article>
+        </li>
+        <li>
+          <article class="work">
+            <span class="num">06</span>
+            <span class="copy">
+              <p class="kicker">Kids</p>
+              <h2>Edtech games</h2>
+              <p class="blurb">
+                Countdown is numbers and letters against a clock, with a kids timer up to two
+                minutes. Abby Zabby is rooms a child taps through and fills with characters.
+                Socrates tutors homeschooled children, ages 5 to 9, by asking the next question.
+                A safety check runs on every turn.
+              </p>
+            </span>
+          </article>
+        </li>
+        <li>
+          <article class="work">
+            <span class="num">07</span>
+            <span class="copy">
+              <p class="kicker">Home</p>
+              <h2>Cameras</h2>
+              <p class="blurb">
+                Wyze cameras on the house network. YOLOv8 marks people and vehicles on the live
+                frames. The video stays in the house.
+              </p>
+            </span>
+          </article>
         </li>
       </ol>
 
