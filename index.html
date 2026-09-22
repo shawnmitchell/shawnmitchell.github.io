@@ -9,36 +9,30 @@
       content="Shawn Mitchell, Raleigh. Honeycutt Software, Pine State AI, JobSeek, voice agents, Orbit, edtech games, and home cameras."
     />
     <link rel="canonical" href="https://shawnmitchell.github.io/" />
-    <meta name="theme-color" content="#f5f5f7" />
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23111'/%3E%3Cpath d='M8 16h16' stroke='%23fff' stroke-width='2'/%3E%3C/svg%3E" />
+    <meta name="theme-color" content="#102820" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23102820'/%3E%3Cpath d='M8 16h16' stroke='%23f3efe4' stroke-width='2'/%3E%3C/svg%3E" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Figtree:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&family=Schibsted+Grotesk:wght@500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;700&display=swap"
       rel="stylesheet"
     />
     <style>
-      :root {
-        --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
-        --dock: #1a1a1a;
-      }
-
       * { box-sizing: border-box; }
-
-      html { scroll-padding-bottom: 104px; }
 
       body {
         margin: 0;
-        color: #1d1d1f;
-        background: #f5f5f7;
-        font-family: system-ui, sans-serif;
+        min-height: 100vh;
+        background: #102820;
+        color: #f3efe4;
+        font-family: "Schibsted Grotesk", system-ui, sans-serif;
         line-height: 1.5;
         -webkit-font-smoothing: antialiased;
       }
 
       :focus { outline: none; }
       :focus-visible {
-        outline: 2px solid currentColor;
+        outline: 2px solid #f3efe4;
         outline-offset: 3px;
       }
 
@@ -46,99 +40,43 @@
         position: absolute;
         left: 12px;
         top: 8px;
-        z-index: 30;
         padding: 8px 12px;
-        background: #111;
-        color: #fff;
+        background: #f3efe4;
+        color: #102820;
         transform: translateY(-140%);
       }
       .skip:focus { transform: none; }
 
-      .visually-hidden {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        padding: 0;
-        margin: -1px;
-        overflow: hidden;
-        clip: rect(0, 0, 0, 0);
-        white-space: nowrap;
-        border: 0;
+      main {
+        padding: 28px 28px 48px;
       }
 
-      .v { display: none; }
-      .v:target { display: block; }
-      body:not(:has(.v:target)) #quiet { display: block; }
+      .layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+        gap: 40px;
+        align-items: start;
+        min-height: calc(100vh - 76px);
+      }
 
-      .dock-plate {
-        position: fixed;
-        z-index: 19;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        height: 104px;
-        pointer-events: none;
-        background: linear-gradient(to top, #f5f5f7 68px, transparent);
+      .where {
+        margin: 0 0 12px;
+        color: #d9d0c0;
       }
-      html:has(#poster:target) .dock-plate { background: linear-gradient(to top, #102820 68px, transparent); }
-      html:has(#sheets:target) .dock-plate { background: linear-gradient(to top, #e4e6ec 68px, transparent); }
-      html:has(#strip:target) .dock-plate { background: linear-gradient(to top, #fbfbfb 68px, transparent); }
-      html:has(#ledger:target) .dock-plate { background: linear-gradient(to top, #fff 68px, transparent); }
 
-      .switch {
-        position: fixed;
-        z-index: 20;
-        left: 50%;
-        bottom: 16px;
-        transform: translateX(-50%);
-        display: flex;
-        gap: 4px;
-        max-width: calc(100% - 24px);
-        padding: 4px;
-        overflow-x: auto;
-        background: var(--dock);
-        border: 1px solid rgba(255, 255, 255, 0.22);
-        border-radius: 999px;
-        box-shadow:
-          0px 2px 3px -1px rgba(0, 0, 0, 0.1),
-          0px 1px 0px 0px rgba(25, 28, 33, 0.02),
-          0px 0px 0px 1px rgba(25, 28, 33, 0.08);
+      h1 {
+        margin: 0;
+        font-size: clamp(4.2rem, 11vw, 8.5rem);
+        font-weight: 700;
+        letter-spacing: -0.045em;
+        line-height: 0.86;
       }
-      .switch a {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        min-height: 40px;
-        padding: 0 14px;
-        border-radius: 999px;
-        color: #fff;
-        font: 500 0.95rem/1 system-ui, sans-serif;
-        text-decoration: none;
-        white-space: nowrap;
-        transition: transform 140ms var(--ease-out), background-color 140ms var(--ease-out), color 140ms var(--ease-out);
-      }
-      html:not(:has(.v:target)) .switch a[href="#quiet"],
-      html:has(#quiet:target) .switch a[href="#quiet"],
-      html:has(#poster:target) .switch a[href="#poster"],
-      html:has(#sheets:target) .switch a[href="#sheets"],
-      html:has(#strip:target) .switch a[href="#strip"],
-      html:has(#ledger:target) .switch a[href="#ledger"] {
-        background: #fff;
-        color: #111;
-      }
-      @media (hover: hover) and (pointer: fine) {
-        .switch a:hover { background: rgba(255, 255, 255, 0.12); }
-        html:not(:has(.v:target)) .switch a[href="#quiet"]:hover,
-        html:has(#quiet:target) .switch a[href="#quiet"]:hover,
-        html:has(#poster:target) .switch a[href="#poster"]:hover,
-        html:has(#sheets:target) .switch a[href="#sheets"]:hover,
-        html:has(#strip:target) .switch a[href="#strip"]:hover,
-        html:has(#ledger:target) .switch a[href="#ledger"]:hover {
-          background: #fff;
-          color: #111;
-        }
-      }
-      .switch a:active { transform: scale(0.97); }
+      h1 span { display: block; }
+
+      .notes { max-width: 38rem; }
+      .notes p { margin: 0 0 16px; font-size: 1.05rem; line-height: 1.45; }
+      .notes a { color: #f3efe4; }
+      .notes strong { font-weight: 700; }
 
       .contact {
         display: flex;
@@ -146,563 +84,34 @@
         gap: 8px 20px;
         margin-top: 28px;
       }
-      .contact a { color: inherit; }
-      .why {
-        max-width: 40rem;
-        margin: 32px 0 0;
-        font-size: 0.92rem;
-        line-height: 1.45;
-      }
-
-      /* Quiet */
-      .quiet {
-        max-width: 740px;
-        margin: 0 auto;
-        padding: 64px 24px 120px;
-        background: #f5f5f7;
-        color: #1d1d1f;
-        font-family: system-ui, sans-serif;
-      }
-      .quiet h1 {
-        margin: 8px 0 12px;
-        font-size: clamp(2.4rem, 5vw, 3.4rem);
-        font-weight: 600;
-        letter-spacing: -0.022em;
-        line-height: 1.05;
-      }
-      .quiet .place, .quiet .lede { margin: 0; color: #424245; }
-      .quiet .lede { max-width: 38rem; margin-bottom: 36px; font-size: 1.15rem; }
-      .quiet .why { color: #424245; }
-      .quiet h2 {
-        margin: 28px 0 8px;
-        font-size: 0.95rem;
-        font-weight: 600;
-      }
-      .quiet ul { list-style: none; margin: 0; padding: 0; }
-      .quiet li + li { border-top: 1px solid #d2d2d7; }
-      .quiet li a, .quiet li .row {
-        display: block;
-        padding: 16px 4px;
-        color: inherit;
-        text-decoration: none;
-      }
-      .quiet .name { display: block; font-weight: 600; font-size: 1.15rem; }
-      .quiet .what { display: block; margin-top: 4px; color: #424245; }
-      .quiet li a .name { text-decoration: underline; text-underline-offset: 3px; }
-      @media (hover: hover) and (pointer: fine) {
-        .quiet li a:hover { background: rgba(0, 0, 0, 0.04); }
-      }
-      .quiet li a:active { transform: scale(0.985); }
-
-      /* Poster */
-      .poster {
-        min-height: 100vh;
-        padding: 28px 28px 120px;
-        background: #102820;
-        color: #f3efe4;
-        font-family: "Schibsted Grotesk", system-ui, sans-serif;
-      }
-      .poster .layout {
-        display: grid;
-        grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
-        gap: 40px;
-        align-items: start;
-        min-height: calc(100vh - 148px);
-      }
-      .poster .where {
-        margin: 0 0 12px;
-        color: #d9d0c0;
-      }
-      .poster h1 {
-        margin: 0;
-        font-size: clamp(4.2rem, 11vw, 8.5rem);
-        font-weight: 700;
-        letter-spacing: -0.045em;
-        line-height: 0.86;
-      }
-      .poster h1 span { display: block; }
-      .poster .notes { max-width: 38rem; }
-      .poster .notes p { margin: 0 0 16px; font-size: 1.05rem; line-height: 1.45; }
-      .poster .notes a { color: #f3efe4; }
-      .poster .why { color: #d9d0c0; }
-      .poster .notes strong { font-weight: 700; }
-
-      /* Sheets */
-      .sheets {
-        min-height: 100vh;
-        padding: 48px 24px 120px;
-        background: #e4e6ec;
-        color: #1a1c1f;
-        font-family: "Atkinson Hyperlegible", system-ui, sans-serif;
-      }
-      .sheets .wrap { max-width: 1040px; margin: 0 auto; }
-      .sheets h1 {
-        margin: 6px 0 8px;
-        font-size: clamp(2.2rem, 4vw, 3rem);
-        letter-spacing: -0.02em;
-        line-height: 1.1;
-      }
-      .sheets .lede { margin: 0 0 28px; max-width: 36rem; color: #3e4450; }
-      .sheets .why { color: #3e4450; }
-      .grid {
-        display: grid;
-        grid-template-columns: repeat(6, 1fr);
-        gap: 16px;
-      }
-      .card {
-        grid-column: span 3;
-        display: flex;
-        flex-direction: column;
-        min-height: 180px;
-        padding: 20px;
-        border-radius: 20px;
-        background: #fff;
-        color: inherit;
-        text-decoration: none;
-        box-shadow:
-          0px 0px 0px 1px rgba(0, 0, 0, 0.06),
-          0px 1px 1px -0.5px rgba(0, 0, 0, 0.06),
-          0px 3px 3px -1.5px rgba(0, 0, 0, 0.06),
-          0px 6px 6px -3px rgba(0, 0, 0, 0.06),
-          0px 12px 12px -6px rgba(0, 0, 0, 0.06),
-          0px 24px 24px -12px rgba(0, 0, 0, 0.06);
-        transition: transform 160ms var(--ease-out);
-      }
-      .card.wide { grid-column: span 2; }
-      .card h2 { margin: 0 0 8px; font-size: 1.45rem; line-height: 1.15; }
-      .card p { margin: 0; color: #3e4450; }
-      .card .go { margin-top: auto; padding-top: 16px; font-weight: 700; }
-      @media (hover: hover) and (pointer: fine) {
-        a.card:hover { transform: translateY(-2px); }
-      }
-      a.card:active { transform: scale(0.985); }
-
-      /* Strip */
-      .strip {
-        min-height: 100vh;
-        padding: 20px 0 108px;
-        background: #fbfbfb;
-        color: #161616;
-        font-family: "Figtree", system-ui, sans-serif;
-      }
-      .strip-head {
-        display: flex;
-        justify-content: space-between;
-        gap: 16px;
-        align-items: end;
-        padding: 12px 24px 16px;
-      }
-      .strip h1 {
-        margin: 0;
-        font-size: clamp(2rem, 4vw, 2.8rem);
-        letter-spacing: -0.03em;
-        line-height: 1;
-      }
-      .strip-head p { margin: 6px 0 0; color: #3a3a3a; }
-      .strip .why { padding: 8px 24px 0; color: #3a3a3a; }
-      .nudge { display: flex; gap: 8px; }
-      .nudge button {
-        min-height: 44px;
-        padding: 0 14px;
-        border: 1px solid #161616;
-        border-radius: 999px;
-        background: #fff;
-        color: #161616;
-        font: 600 0.95rem/1 "Figtree", system-ui, sans-serif;
-        transition: transform 140ms var(--ease-out);
-      }
-      .nudge button:active { transform: scale(0.97); }
-      .strip-row {
-        display: flex;
-        gap: 16px;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        padding: 8px 24px 16px;
-      }
-      .panel {
-        flex: 0 0 calc((100% - 16px) / 2);
-        scroll-snap-align: start;
-        min-height: 0;
-        padding: 28px 28px 24px;
-        border-left: 4px solid #0f3d2e;
-        background: #fff;
-      }
-      .panel h2 { margin: 0 0 12px; font-size: clamp(1.8rem, 3vw, 2.4rem); letter-spacing: -0.03em; }
-      .panel p { margin: 0; max-width: 38rem; font-size: 1.1rem; }
-      .panel a { color: #0f3d2e; font-weight: 600; }
-
-      /* Ledger */
-      .ledger {
-        min-height: 100vh;
-        padding: 48px 24px 120px;
-        background: #fff;
-        color: #1a1a1a;
-        font-family: "IBM Plex Sans", system-ui, sans-serif;
-      }
-      .ledger .wrap { max-width: 980px; margin: 0 auto; }
-      .ledger h1 {
-        margin: 4px 0 8px;
-        font-size: 2rem;
-        font-weight: 600;
-        letter-spacing: -0.03em;
-      }
-      .ledger .lede { margin: 0 0 20px; color: #333; }
-      .ledger .why { color: #333; }
-      .table-wrap { overflow-x: auto; }
-      table { width: 100%; border-collapse: collapse; font-size: 0.98rem; }
-      th, td {
-        padding: 12px 10px;
-        border-bottom: 1px solid #c8c8c8;
-        text-align: left;
-        vertical-align: top;
-      }
-      thead th { font-weight: 600; color: #333; }
-      tbody th { font-weight: 600; white-space: nowrap; }
-      td a { color: #1a1a1a; }
 
       @media (max-width: 860px) {
-        .poster .layout { grid-template-columns: 1fr; align-items: start; }
-        .card, .card.wide { grid-column: span 6; }
-        .panel { flex-basis: calc(100% - 8px); }
-        .strip-head { align-items: start; flex-direction: column; }
-      }
-
-      @media (max-width: 640px) {
-        .switch { border-radius: 16px; }
-        .ledger thead { display: none; }
-        .ledger tr { display: block; padding: 12px 0; border-bottom: 1px solid #c8c8c8; }
-        .ledger th, .ledger td { display: block; padding: 2px 0; border: 0; }
-      }
-
-      @media (prefers-reduced-motion: reduce) {
-        *, *::before, *::after {
-          animation-duration: 0.01ms !important;
-          animation-iteration-count: 1 !important;
-          transition-duration: 0.01ms !important;
-          scroll-behavior: auto !important;
-        }
-        .switch a:active, .quiet li a:active, a.card:active, .nudge button:active {
-          transform: none;
-        }
-      }
-
-      @media (prefers-reduced-transparency: reduce) {
-        .dock-plate { background: #f5f5f7; }
-        html:has(#poster:target) .dock-plate { background: #102820; }
-        html:has(#sheets:target) .dock-plate { background: #e4e6ec; }
-        html:has(#strip:target) .dock-plate { background: #fbfbfb; }
-        html:has(#ledger:target) .dock-plate { background: #fff; }
+        .layout { grid-template-columns: 1fr; }
       }
     </style>
   </head>
   <body>
     <a class="skip" href="#work">Skip to work</a>
-    <p id="version-status" class="visually-hidden" aria-live="polite"></p>
-
     <main id="work">
-      <section class="v quiet" id="quiet" aria-labelledby="quiet-title">
-        <p class="place">Raleigh, North Carolina</p>
-        <h1 id="quiet-title">Shawn Mitchell</h1>
-        <p class="lede">I build software in Raleigh.</p>
-
-        <h2>On the web</h2>
-        <ul>
-          <li>
-            <a href="https://honeycuttsoftware.com">
-              <span class="name">Honeycutt Software</span>
-              <span class="what">My studio site in Raleigh. The domain runs private Powerwall control for Duke Energy peak days.</span>
-            </a>
-          </li>
-          <li>
-            <a href="https://pinestate.ai">
-              <span class="name">Pine State AI</span>
-              <span class="what">Fixed-scope AI for owner-operated businesses. Voice agents that answer the phone, workflow automation, and marketing systems.</span>
-            </a>
-          </li>
-          <li>
-            <a href="https://getjobseek.com">
-              <span class="name">JobSeek</span>
-              <span class="what">Scores a listing against your resume, writes the application, and does the same from a Chrome extension on LinkedIn and Indeed. Jev scores the match. Gemini writes the prose.</span>
-            </a>
-          </li>
-        </ul>
-
-        <h2>On this machine</h2>
-        <ul>
-          <li>
-            <div class="row">
-              <span class="name">Voice agents</span>
-              <span class="what">Farina answers the phone for a Raleigh Italian restaurant. Menu questions, pickup orders, reservations. Abby takes shift calls for healthcare staffing. Workers confirm or drop a shift. Facilities ask for coverage.</span>
-            </div>
-          </li>
-          <li>
-            <div class="row">
-              <span class="name">Orbit</span>
-              <span class="what">A personal CRM on the Mac. It reads iMessage, Contacts, Calendar, and call history, and keeps one timeline per person.</span>
-            </div>
-          </li>
-          <li>
-            <div class="row">
-              <span class="name">Edtech games</span>
-              <span class="what">Countdown is numbers and letters against a clock, with a kids timer up to two minutes. Abby Zabby is rooms a child taps through and fills with characters. Socrates tutors homeschooled children, ages 5 to 9, by asking the next question. A safety check runs on every turn.</span>
-            </div>
-          </li>
-          <li>
-            <div class="row">
-              <span class="name">Cameras</span>
-              <span class="what">Wyze cameras on the house network. YOLOv8 marks people and vehicles on the live frames. The video stays in the house.</span>
-            </div>
-          </li>
-        </ul>
-        <p class="why">This version follows apple-design and emil-design-eng. The type is the system font, a press scales the row, and the version bar does not animate when you move it with the keyboard. accessibility set the contrast, the focus ring, and the skip link.</p>
-        <p class="contact">
-          <a href="mailto:shawn@honeycuttsoftware.com">shawn@honeycuttsoftware.com</a>
-          <a href="https://github.com/shawnmitchell">github.com/shawnmitchell</a>
-        </p>
-      </section>
-
-      <section class="v poster" id="poster" aria-labelledby="poster-title">
-        <div class="layout">
-          <div>
-            <p class="where">Raleigh, North Carolina</p>
-            <h1 id="poster-title"><span>Shawn</span><span>Mitchell</span></h1>
-          </div>
-          <div class="notes">
-            <p><a href="https://honeycuttsoftware.com"><strong>Honeycutt Software.</strong></a> My studio site in Raleigh. The domain runs private Powerwall control for Duke Energy peak days.</p>
-            <p><a href="https://pinestate.ai"><strong>Pine State AI.</strong></a> Fixed-scope AI for owner-operated businesses. Voice agents that answer the phone, workflow automation, and marketing systems.</p>
-            <p><a href="https://getjobseek.com"><strong>JobSeek.</strong></a> Scores a listing against your resume, writes the application, and does the same from a Chrome extension on LinkedIn and Indeed. Jev scores the match. Gemini writes the prose.</p>
-            <p><strong>Voice agents.</strong> Farina answers the phone for a Raleigh Italian restaurant. Menu questions, pickup orders, reservations. Abby takes shift calls for healthcare staffing. Workers confirm or drop a shift. Facilities ask for coverage.</p>
-            <p><strong>Orbit.</strong> A personal CRM on the Mac. It reads iMessage, Contacts, Calendar, and call history, and keeps one timeline per person.</p>
-            <p><strong>Edtech games.</strong> Countdown is numbers and letters against a clock, with a kids timer up to two minutes. Abby Zabby is rooms a child taps through and fills with characters. Socrates tutors homeschooled children, ages 5 to 9, by asking the next question. A safety check runs on every turn.</p>
-            <p><strong>Cameras.</strong> Wyze cameras on the house network. YOLOv8 marks people and vehicles on the live frames. The video stays in the house.</p>
-            <p class="why">This version follows frontend-design. The name is the one loud move, on pine rather than a cream page. apple-design tightened the tracking on the large type, and accessibility checked the light text against the green.</p>
-            <p class="contact">
-              <a href="mailto:shawn@honeycuttsoftware.com">shawn@honeycuttsoftware.com</a>
-              <a href="https://github.com/shawnmitchell">github.com/shawnmitchell</a>
-            </p>
-          </div>
+      <div class="layout">
+        <div>
+          <p class="where">Raleigh, North Carolina</p>
+          <h1><span>Shawn</span><span>Mitchell</span></h1>
         </div>
-      </section>
-
-      <section class="v sheets" id="sheets" aria-labelledby="sheets-title">
-        <div class="wrap">
-          <p>Raleigh, North Carolina</p>
-          <h1 id="sheets-title">Shawn Mitchell</h1>
-          <p class="lede">I build software in Raleigh.</p>
-          <div class="grid">
-            <a class="card wide" href="https://honeycuttsoftware.com">
-              <h2>Honeycutt Software</h2>
-              <p>My studio site in Raleigh. The domain runs private Powerwall control for Duke Energy peak days.</p>
-              <span class="go">honeycuttsoftware.com</span>
-            </a>
-            <a class="card wide" href="https://pinestate.ai">
-              <h2>Pine State AI</h2>
-              <p>Fixed-scope AI for owner-operated businesses. Voice agents that answer the phone, workflow automation, and marketing systems.</p>
-              <span class="go">pinestate.ai</span>
-            </a>
-            <a class="card wide" href="https://getjobseek.com">
-              <h2>JobSeek</h2>
-              <p>Scores a listing against your resume, writes the application, and does the same from a Chrome extension on LinkedIn and Indeed. Jev scores the match. Gemini writes the prose.</p>
-              <span class="go">getjobseek.com</span>
-            </a>
-            <article class="card">
-              <h2>Voice agents</h2>
-              <p>Farina answers the phone for a Raleigh Italian restaurant. Menu questions, pickup orders, reservations. Abby takes shift calls for healthcare staffing. Workers confirm or drop a shift. Facilities ask for coverage.</p>
-            </article>
-            <article class="card">
-              <h2>Orbit</h2>
-              <p>A personal CRM on the Mac. It reads iMessage, Contacts, Calendar, and call history, and keeps one timeline per person.</p>
-            </article>
-            <article class="card">
-              <h2>Edtech games</h2>
-              <p>Countdown is numbers and letters against a clock, with a kids timer up to two minutes. Abby Zabby is rooms a child taps through and fills with characters. Socrates tutors homeschooled children, ages 5 to 9, by asking the next question. A safety check runs on every turn.</p>
-            </article>
-            <article class="card">
-              <h2>Cameras</h2>
-              <p>Wyze cameras on the house network. YOLOv8 marks people and vehicles on the live frames. The video stays in the house.</p>
-            </article>
-          </div>
-          <p class="why">This version follows beautiful-shadows. Each card carries the medium shadow, neutral, and only that one. adapt turns the grid into a single column on a phone. frontend-design treats a matching card grid as a default to avoid, and this version keeps the grid so you can judge that.</p>
+        <div class="notes">
+          <p><a href="https://honeycuttsoftware.com"><strong>Honeycutt Software.</strong></a> My studio site in Raleigh. The domain runs private Powerwall control for Duke Energy peak days.</p>
+          <p><a href="https://pinestate.ai"><strong>Pine State AI.</strong></a> Fixed-scope AI for owner-operated businesses. Voice agents that answer the phone, workflow automation, and marketing systems.</p>
+          <p><a href="https://getjobseek.com"><strong>JobSeek.</strong></a> Scores a listing against your resume, writes the application, and does the same from a Chrome extension on LinkedIn and Indeed. Jev scores the match. Gemini writes the prose.</p>
+          <p><strong>Voice agents.</strong> Farina answers the phone for a Raleigh Italian restaurant. Menu questions, pickup orders, reservations. Abby takes shift calls for healthcare staffing. Workers confirm or drop a shift. Facilities ask for coverage.</p>
+          <p><strong>Orbit.</strong> A personal CRM on the Mac. It reads iMessage, Contacts, Calendar, and call history, and keeps one timeline per person.</p>
+          <p><strong>Edtech games.</strong> Countdown is numbers and letters against a clock, with a kids timer up to two minutes. Abby Zabby is rooms a child taps through and fills with characters. Socrates tutors homeschooled children, ages 5 to 9, by asking the next question. A safety check runs on every turn.</p>
+          <p><strong>Cameras.</strong> Wyze cameras on the house network. YOLOv8 marks people and vehicles on the live frames. The video stays in the house.</p>
           <p class="contact">
             <a href="mailto:shawn@honeycuttsoftware.com">shawn@honeycuttsoftware.com</a>
             <a href="https://github.com/shawnmitchell">github.com/shawnmitchell</a>
           </p>
         </div>
-      </section>
-
-      <section class="v strip" id="strip" aria-labelledby="strip-title">
-        <div class="strip-head">
-          <div>
-            <h1 id="strip-title">Shawn Mitchell</h1>
-            <p>Raleigh. Scroll sideways for the work.</p>
-          </div>
-          <div class="nudge">
-            <button type="button" data-nudge="prev" aria-label="Previous project">Previous</button>
-            <button type="button" data-nudge="next" aria-label="Next project">Next</button>
-          </div>
-        </div>
-        <div class="strip-row" id="strip-row" tabindex="0" aria-label="Work, scroll sideways">
-          <article class="panel">
-            <h2>Honeycutt Software</h2>
-            <p>My studio site in Raleigh. The domain runs private Powerwall control for Duke Energy peak days.</p>
-            <p><a href="https://honeycuttsoftware.com">honeycuttsoftware.com</a></p>
-          </article>
-          <article class="panel">
-            <h2>Pine State AI</h2>
-            <p>Fixed-scope AI for owner-operated businesses. Voice agents that answer the phone, workflow automation, and marketing systems.</p>
-            <p><a href="https://pinestate.ai">pinestate.ai</a></p>
-          </article>
-          <article class="panel">
-            <h2>JobSeek</h2>
-            <p>Scores a listing against your resume, writes the application, and does the same from a Chrome extension on LinkedIn and Indeed. Jev scores the match. Gemini writes the prose.</p>
-            <p><a href="https://getjobseek.com">getjobseek.com</a></p>
-          </article>
-          <article class="panel">
-            <h2>Voice agents</h2>
-            <p>Farina answers the phone for a Raleigh Italian restaurant. Menu questions, pickup orders, reservations. Abby takes shift calls for healthcare staffing. Workers confirm or drop a shift. Facilities ask for coverage.</p>
-          </article>
-          <article class="panel">
-            <h2>Orbit</h2>
-            <p>A personal CRM on the Mac. It reads iMessage, Contacts, Calendar, and call history, and keeps one timeline per person.</p>
-          </article>
-          <article class="panel">
-            <h2>Edtech games</h2>
-            <p>Countdown is numbers and letters against a clock, with a kids timer up to two minutes. Abby Zabby is rooms a child taps through and fills with characters. Socrates tutors homeschooled children, ages 5 to 9, by asking the next question. A safety check runs on every turn.</p>
-          </article>
-          <article class="panel">
-            <h2>Cameras</h2>
-            <p>Wyze cameras on the house network. YOLOv8 marks people and vehicles on the live frames. The video stays in the house.</p>
-          </article>
-        </div>
-        <p class="why">This version follows interaction-design. The work moves sideways, and Previous and Next move it too. adapt shows two panels on a wide screen and one on a phone. emil-design-eng keeps the button press short and skips the smooth scroll when motion is reduced.</p>
-        <p class="contact" style="padding: 0 24px">
-          <a href="mailto:shawn@honeycuttsoftware.com">shawn@honeycuttsoftware.com</a>
-          <a href="https://github.com/shawnmitchell">github.com/shawnmitchell</a>
-        </p>
-      </section>
-
-      <section class="v ledger" id="ledger" aria-labelledby="ledger-title">
-        <div class="wrap">
-          <p>Raleigh, North Carolina</p>
-          <h1 id="ledger-title">Shawn Mitchell</h1>
-          <p class="lede">I build software in Raleigh.</p>
-          <div class="table-wrap">
-            <table>
-              <caption class="visually-hidden">Recent work</caption>
-              <thead>
-                <tr>
-                  <th scope="col">Work</th>
-                  <th scope="col">What it is</th>
-                  <th scope="col">Link</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">Honeycutt Software</th>
-                  <td>My studio site in Raleigh. The domain runs private Powerwall control for Duke Energy peak days.</td>
-                  <td><a href="https://honeycuttsoftware.com">honeycuttsoftware.com</a></td>
-                </tr>
-                <tr>
-                  <th scope="row">Pine State AI</th>
-                  <td>Fixed-scope AI for owner-operated businesses. Voice agents that answer the phone, workflow automation, and marketing systems.</td>
-                  <td><a href="https://pinestate.ai">pinestate.ai</a></td>
-                </tr>
-                <tr>
-                  <th scope="row">JobSeek</th>
-                  <td>Scores a listing against your resume, writes the application, and does the same from a Chrome extension on LinkedIn and Indeed. Jev scores the match. Gemini writes the prose.</td>
-                  <td><a href="https://getjobseek.com">getjobseek.com</a></td>
-                </tr>
-                <tr>
-                  <th scope="row">Voice agents</th>
-                  <td>Farina answers the phone for a Raleigh Italian restaurant. Menu questions, pickup orders, reservations. Abby takes shift calls for healthcare staffing.</td>
-                  <td>No public site</td>
-                </tr>
-                <tr>
-                  <th scope="row">Orbit</th>
-                  <td>A personal CRM on the Mac. It reads iMessage, Contacts, Calendar, and call history, and keeps one timeline per person.</td>
-                  <td>No public site</td>
-                </tr>
-                <tr>
-                  <th scope="row">Edtech games</th>
-                  <td>Countdown is numbers and letters against a clock. Abby Zabby is rooms a child taps through. Socrates tutors homeschooled children, ages 5 to 9, and a safety check runs on every turn.</td>
-                  <td>No public site</td>
-                </tr>
-                <tr>
-                  <th scope="row">Cameras</th>
-                  <td>Wyze cameras on the house network. YOLOv8 marks people and vehicles on the live frames. The video stays in the house.</td>
-                  <td>No public site</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <p class="why">This version follows accessibility. The work is a table with a caption and row headers, and adapt stacks each row on a phone. beautiful-shadows and a display face were not part of it.</p>
-          <p class="contact">
-            <a href="mailto:shawn@honeycuttsoftware.com">shawn@honeycuttsoftware.com</a>
-            <a href="https://github.com/shawnmitchell">github.com/shawnmitchell</a>
-          </p>
-        </div>
-      </section>
+      </div>
     </main>
-
-    <div class="dock-plate" aria-hidden="true"></div>
-    <nav class="switch" aria-label="Versions of this page">
-      <a href="#quiet" aria-current="page">Quiet</a>
-      <a href="#poster">Poster</a>
-      <a href="#sheets">Sheets</a>
-      <a href="#strip">Strip</a>
-      <a href="#ledger">Ledger</a>
-    </nav>
-
-    <script>
-      (function () {
-        var links = Array.prototype.slice.call(document.querySelectorAll(".switch a"));
-        var names = { quiet: "Quiet", poster: "Poster", sheets: "Sheets", strip: "Strip", ledger: "Ledger" };
-        var status = document.getElementById("version-status");
-        var announced = false;
-
-        function currentId() {
-          var id = location.hash.replace("#", "");
-          return names[id] ? id : "quiet";
-        }
-
-        function sync() {
-          var id = currentId();
-          links.forEach(function (link) {
-            if (link.getAttribute("href") === "#" + id) link.setAttribute("aria-current", "page");
-            else link.removeAttribute("aria-current");
-          });
-          if (announced) status.textContent = "Showing " + names[id];
-          announced = true;
-          document.title = "Shawn Mitchell, " + names[id];
-        }
-
-        var switcher = document.querySelector(".switch");
-        switcher.addEventListener("keydown", function (event) {
-          if (event.key !== "ArrowRight" && event.key !== "ArrowLeft") return;
-          var index = links.indexOf(document.activeElement);
-          if (index < 0) return;
-          event.preventDefault();
-          var step = event.key === "ArrowRight" ? 1 : -1;
-          var next = links[(index + step + links.length) % links.length];
-          next.focus();
-          next.click();
-        });
-
-        var row = document.getElementById("strip-row");
-        document.querySelectorAll("[data-nudge]").forEach(function (button) {
-          button.addEventListener("click", function () {
-            var amount = Math.max(280, row.clientWidth * 0.72);
-            var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-            row.scrollBy({
-              left: button.getAttribute("data-nudge") === "next" ? amount : -amount,
-              behavior: reduce ? "auto" : "smooth"
-            });
-          });
-        });
-
-        window.addEventListener("hashchange", sync);
-        sync();
-      })();
-    </script>
   </body>
 </html>
